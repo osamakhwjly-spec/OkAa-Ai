@@ -1,0 +1,58 @@
+:root{
+    --main: #6366F1; --main-dark: #4F46E5;
+    --add: #22C55E; --delete: #EF4444;
+    --bg: #F1F5F9; --card: #FFFFFF; --text: #0F172A;
+}
+body.dark{ --bg: #020617; --card: #0F172A; --text: #F8FAFC; }
+
+*{box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:var(--bg);color:var(--text);margin:0;transition:.3s}
+
+/* شاشة الدخول الجديدة */
+.login-container{
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; 
+    background:linear-gradient(135deg, #6366F1 0%, #818CF8 100%);
+    padding:20px;
+}
+.login-logo{ text-align:center; color:white; margin-bottom:30px; }
+.login-logo h1{ font-size:60px; font-weight:900; margin:0; }
+.login-logo p{ font-size:18px; opacity:0.9; }
+
+.login-box{
+    width:100%; max-width:400px; background:var(--card);
+    padding:30px; border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+.login-box h2{ text-align:center; margin-bottom:20px; color:var(--main); }
+.login-box input{
+    width:100%; padding:14px; margin:10px 0;
+    border:2px solid #E2E8F0; border-radius:12px; font-size:16px;
+}
+.login-box input:focus{ border-color:var(--main); outline:none; }
+.btn-login{
+    width:100%; padding:14px; background:var(--main); color:white;
+    border:none; border-radius:12px; font-size:18px; font-weight:700; cursor:pointer;
+    margin-top:10px;
+}
+.btn-login:hover{ background:var(--main-dark); }
+.hint{ text-align:center; font-size:12px; opacity:0.6; margin-top:15px; }
+
+/* باقي التطبيق */
+.screen{display:none}.screen.active{display:block}
+header{background:var(--card);color:var(--text);padding:15px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+header button{background:var(--main);color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;margin-right:5px}
+nav{display:flex;overflow-x:auto;background:var(--card)}
+.nav-btn{flex:1;padding:14px;border:none;background:transparent;cursor:pointer;font-weight:700}.nav-btn.active{border-bottom:3px solid var(--main);color:var(--main)}
+.container{max-width:700px;margin:20px auto;padding:15px}.tab{display:none}.tab.active{display:block}
+.add-task{display:flex;flex-direction:column;gap:10px}
+.add-task input,.chat-input input{padding:12px;border:2px solid #E2E8F0;border-radius:10px}
+.btn-add{padding:12px;background:var(--add);color:white;border:none;border-radius:10px;cursor:pointer;font-weight:700}
+.task{background:var(--card);padding:15px;margin:10px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+#chatBox{height:350px;overflow-y:auto;background:var(--card);padding:15px;border-radius:12px}
+footer{text-align:center;padding:20px;background:var(--card);margin-top:30px}
+.btn-ai{
+    width:100%; padding:12px; background:linear-gradient(90deg,#8B5CF6,#6366F1);
+    color:white; border:none; border-radius:10px; font-weight:700; cursor:pointer; margin-bottom:15px;
+}
+.hint{font-size:12px; opacity:0.7; text-align:center}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OkAa - تطبيقك الشامل</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="loginScreen" class="screen active">
+    <div class="login-container">
+        <div class="login-logo"><h1>OkAa</h1><p>مدعوم بالذكاء الاصطناعي</p></div>
+        <div class="login-box">
+            <h2>مرحبا بعودتك 👋</h2>
+            <input type="email" id="email" placeholder="البريد الالكتروني">
+            <input type="password" id="password" placeholder="كلمة السر">
+            <button class="btn-login" onclick="login()">دخول</button>
+        </div>
+    </div>
+</div>
+
+<div id="appScreen" class="screen">
+    <header><h1>OkAa</h1><div><button onclick="shareApp()">مشاركة</button><button id="darkModeBtn">🌙</button><button id="logoutBtn" onclick="logout()">خروج</button></div></header>
+    <nav>
+        <button class="nav-btn active" data-tab="tasks">المهام</button>
+        <button class="nav-btn" data-tab="calendar">التقويم</button>
+        <button class="nav-btn" data-tab="calculator">الحاسبة</button>
+        <button class="nav-btn" data-tab="game">X O</button>
+        <button class="nav-btn" data-tab="ai">OkAa Ai</button>
+    </nav>
+
+    <div class="container">
+        <!-- المهام -->
+        <div id="tasks" class="tab active">
+            <button class="btn-ai" onclick="aiSuggestTask()">✨ اقترح لي مهام بالـ AI</button>
+            <div class="add-task">
+                <input type="text" id="taskInput" placeholder="اكتب مهمة جديدة...">
+                <input type="file" id="taskImage" accept="image/*">
+                <button class="btn-add" onclick="addTask()">اضافة</button>
+            </div>
+            <ul id="taskList"></ul><p id="counter">متبقي لك 0 مهام</p>
+        </div>
+
+        <!-- التقويم -->
+        <div id="calendar" class="tab">
+            <input type="date" id="calendarDate">
+            <button class="btn-ai" onclick="aiPlanDay()">✨ خطط لي يومي بالـ AI</button>
+            <div id="calendarEvents"></div>
+        </div>
+
+        <!-- الحاسبة -->
+        <div id="calculator" class="tab">
+            <input type="text" id="calcDisplay" disabled>
+            <input type="file" id="mathImage" accept="image/*" onchange="solveMathImage()">
+            <p class="hint">📸 صور مسألة رياضية والـ AI بحلها ليك</p>
+            <div class="calc-grid">... ازرار الحاسبة... </div>
+        </div>
+
+        <!-- لعبة XO ضد الكمبيوتر -->
+        <div id="game" class="tab">
+            <h3>لعبة X O ضد الكمبيوتر</h3>
+            <div id="xoBoard" class="xo-board"></div>
+            <p id="xoTurn">دورك: X</p>
+            <button onclick="resetXO()">اعادة</button>
+        </div>
+
+        <!-- AI -->
+        <div id="ai" class="tab">
+            <div id="chatBox"></div>
+            <div class="chat-input">
+                <input type="text" id="aiInput" placeholder="اسأل OkAa Ai...">
+                <button onclick="startVoice()">🎤</button>
+                <button onclick="sendAI()">ارسال</button>
+            </div>
+        </div>
+    </div>
+    <footer><p>جميع الحقوق محفوظة © OkAa 2026</p></footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
